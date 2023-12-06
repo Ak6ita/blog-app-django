@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
-    
+    path('openai-token', views.get_openai_key, name="get_openai_key")
 ]
